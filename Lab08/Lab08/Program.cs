@@ -10,13 +10,29 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            int[] data = { 51, 58, 14, 20, -5, 61, 7, 21, 6 };
-            Console.WriteLine("Length of data = {0}", data.Length);
-            for (int i = 0; i < data.Length; i++)
+            double[] GPS = new double[8];
+            double[] tmpGPS = new double[8];
+            double[] Weight = new double[8];
+
+            for (int i=0;i<GPS.Length;i++)
             {
-                Console.WriteLine(data[i]);
+                Console.Write("Enter semester {0}'s GPS : ",i+1);
+                GPS[i] = double.Parse(Console.ReadLine());
+                Console.Write("Enter semester {0}'s Weight",i+1);
+                Weight[i] = double.Parse(Console.ReadLine());
+                tmpGPS[i] = GPS[i] * Weight[i];
             }
-            Console.ReadLine();
+
+            double GPA = tmpGPS.Sum() / Weight.Sum();
+            int j = 0;
+            foreach (double g in GPS)
+            {
+                j++;
+                Console.WriteLine("Semester {0} GPS is {1}",j,g);
+            }
+            Console.WriteLine("GPA : {0} ",GPA);
+            Console.ReadKey();
+
         }
     }
 }
