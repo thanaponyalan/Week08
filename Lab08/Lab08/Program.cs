@@ -11,15 +11,20 @@ namespace Lab08
         static void Main(string[] args)
         {
             int[] data = new int[10];
-            data[-1] = 0;
-            data[1] = 1;
-            data[9] = 9;
-            data[10] = 10;
-            Console.WriteLine(data[-1]);
-            Console.WriteLine(data[1]);
-            Console.WriteLine(data[9]);
-            Console.WriteLine(data[10]);
+            Student[] student = new Student[31];
+            Console.WriteLine(data.Length);
+            Console.WriteLine(student.Length);
             Console.ReadLine();
         }
+        class Student     // nested class
+        {
+            private string name;
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
+        }
+
     }
 }
