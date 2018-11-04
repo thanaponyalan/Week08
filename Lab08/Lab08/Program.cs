@@ -10,28 +10,19 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            double[] GPS = new double[8];
-            double[] tmpGPS = new double[8];
-            double[] Weight = new double[8];
+            int[] firstDateofMonth = new int[12] {1,4,4,0,2,5,0,3,6,1,4,6};
+            string[] dayInWeek = new string[7] {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
 
-            for (int i=0;i<GPS.Length;i++)
-            {
-                Console.Write("Enter semester {0}'s GPS : ",i+1);
-                GPS[i] = double.Parse(Console.ReadLine());
-                Console.Write("Enter semester {0}'s Weight : ",i+1);
-                Weight[i] = double.Parse(Console.ReadLine());
-                tmpGPS[i] = GPS[i] * Weight[i];
-            }
-            double GPA = tmpGPS.Sum() / Weight.Sum();
-            int j = 0;
-            foreach (double g in GPS)
-            {
-                j++;
-                Console.WriteLine("Semester {0} GPS is {1:F2}",j,g);
-            }
-            Console.WriteLine("GPA : {0:F2} ",GPA);
+            int Day;
+            int Month;
+
+            Console.Write("Enter month of day [1-12] : ");
+            Month = int.Parse(Console.ReadLine());
+            Console.Write("Enter date of day : ");
+            Day = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("{0}/{1}/2018 is "+dayInWeek[((Day+firstDateofMonth[Month-1])-1)%7],Day,Month);
             Console.ReadKey();
-
         }
     }
 }
