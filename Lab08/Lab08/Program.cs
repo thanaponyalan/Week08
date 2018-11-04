@@ -10,19 +10,36 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            int[] firstDateofMonth = new int[12] {1,4,4,0,2,5,0,3,6,1,4,6};
-            string[] dayInWeek = new string[7] {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+            string[] array1 = { "cat", "dog", "carrot", "bird" };
 
-            int Day;
-            int Month;
+            //
+            // ค้นหาสมาชิกตัวแรกที่มีค่าตามกำหนด 
+            //
+            string value1 = Array.Find(array1,
+              element => element.StartsWith("car",
+              StringComparison.Ordinal));
 
-            Console.Write("Enter month of day [1-12] : ");
-            Month = int.Parse(Console.ReadLine());
-            Console.Write("Enter date of day : ");
-            Day = int.Parse(Console.ReadLine());
+            string value2 = Array.Find(array1,
+              element => element.StartsWith("fish",
+              StringComparison.Ordinal));
 
-            Console.WriteLine("{0}/{1}/2018 is "+dayInWeek[((Day+firstDateofMonth[Month-1])-1)%7],Day,Month);
-            Console.ReadKey();
+            //
+            // ค้นหาสมาชิกตัวแรกที่มีความยาว string ตามกำหนด
+            //
+            string value3 = Array.Find(array1,
+                element => element.Length == 3);
+
+            //
+            // ค้นหา string ที่มีความยาวไม่เกินค่าที่กำหนด
+            //
+            string[] array2 = Array.FindAll(array1,
+                element => element.Length <= 4);
+
+            Console.WriteLine(value1);
+            Console.WriteLine(value2);
+            Console.WriteLine(value3);
+            Console.WriteLine(string.Join(",", array2));
+            Console.ReadLine();
         }
     }
 }
