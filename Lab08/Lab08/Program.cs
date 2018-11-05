@@ -10,25 +10,28 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            CountryArrays country = new CountryArrays();
-            string[] endWithLand=new string[Array.FindAll(country.Names, element => element.EndsWith("land", StringComparison.Ordinal)).Length];
-            string[] endWithStan = new string[Array.FindAll(country.Names, element => element.EndsWith("stan", StringComparison.Ordinal)).Length];
-            
-            Array.Copy(Array.FindAll(country.Names,element=>element.EndsWith("land",StringComparison.Ordinal)),endWithLand, endWithLand.Length);
-            Array.Copy(Array.FindAll(country.Names, element => element.EndsWith("stan", StringComparison.Ordinal)),endWithStan,endWithStan.Length);
-
-            Console.WriteLine("End with land : ");
-            foreach (string land in endWithLand)
+            int[,] multiplyTable = new int[12, 12];
+            multiplyTable[0, 0] = 2 * 1;
+            multiplyTable[1, 0] = 2 * 2;
+            multiplyTable[2, 0] = 2 * 3;
+            multiplyTable[3, 0] = 2 * 4;
+            multiplyTable[4, 0] = 2 * 5;
+            multiplyTable[5, 0] = 2 * 6;
+            multiplyTable[6, 0] = 2 * 7;
+            multiplyTable[7, 0] = 2 * 8;
+            multiplyTable[8, 0] = 2 * 9;
+            multiplyTable[9, 0] = 2 * 10;
+            multiplyTable[10, 0] = 2 * 11;
+            multiplyTable[11, 0] = 2 * 12;
+            for (int row = 0; row < multiplyTable.GetLength(0); row++)
             {
-                Console.WriteLine(land);
+                for (int col = 0; col < multiplyTable.GetLength(1); col++)
+                {
+                    Console.Write("{0,5}", multiplyTable[row, col]);
+                }
+                Console.WriteLine();
             }
-
-            Console.WriteLine("\nEnd with stan : ");
-            foreach (string stan in endWithStan)
-            {
-                Console.WriteLine(stan);
-            }
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 
