@@ -10,28 +10,18 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            int[,] multiplyTable = new int[12, 12];
-            for (int i=1;i<13;i++) {
-                multiplyTable[0, i-1] = i * 1;
-                multiplyTable[1, i-1] = i * 2;
-                multiplyTable[2, i-1] = i * 3;
-                multiplyTable[3, i-1] = i * 4;
-                multiplyTable[4, i-1] = i * 5;
-                multiplyTable[5, i-1] = i * 6;
-                multiplyTable[6, i-1] = i * 7;
-                multiplyTable[7, i-1] = i * 8;
-                multiplyTable[8, i-1] = i * 9;
-                multiplyTable[9, i-1] = i * 10;
-                multiplyTable[10, i-1] = i * 11;
-                multiplyTable[11, i-1] = i * 12;
-            }
-            for (int row = 0; row < multiplyTable.GetLength(0); row++)
+            string[][] jagged = new string[2][];
+            jagged[0] = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            jagged[1] = new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            Console.WriteLine("Day : ");
+            foreach (string d in jagged[0])
             {
-                for (int col = 0; col < multiplyTable.GetLength(1); col++)
-                {
-                    Console.Write("{0,5}", multiplyTable[row, col]);
-                }
-                Console.WriteLine();
+                Console.WriteLine(d);
+            }
+            Console.WriteLine("\nMonths : ");
+            foreach (string m in jagged[1])
+            {
+                Console.WriteLine(m);
             }
             Console.ReadLine();
         }
