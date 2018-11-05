@@ -10,46 +10,25 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            int[] ArrayA = new int[] { 1, 2, 3, 4, 5, 6 };
-            int[] ArrayB = new int[6];
-            // copy by operator =
-            ArrayB = ArrayA;
+            string[] Months = new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            string[] endWithBer=new string[Array.FindAll(Months, element => element.EndsWith("ber", StringComparison.Ordinal)).Length];
+            string[] endWithRy = new string[Array.FindAll(Months, element => element.EndsWith("ry", StringComparison.Ordinal)).Length];
+            
+            Array.Copy(Array.FindAll(Months,element=>element.EndsWith("ber",StringComparison.Ordinal)),endWithBer, endWithBer.Length);
+            Array.Copy(Array.FindAll(Months, element => element.EndsWith("ry", StringComparison.Ordinal)),endWithRy,endWithRy.Length);
 
-            Console.WriteLine("*** Array copy by operator = ***");
-            Console.WriteLine("===== Before =====");
-            for (int i = 0; i < ArrayA.Length; i++)
+            Console.WriteLine("End with ber : ");
+            foreach (string ber in endWithBer)
             {
-                Console.WriteLine("arrayA[{0}] = {1},ArrayB[{0}] = {2}",i, ArrayA[i], ArrayB[i]);
-            }
-            // change element 0 of ArrayA
-            ArrayA[0] = 9;
-            Console.WriteLine("===== After ======");
-            for (int i = 0; i < ArrayA.Length; i++)
-            {
-                Console.WriteLine("ArrayA[{0}] = {1},ArrayB[{0}] = {2}", i, ArrayA[i], ArrayB[i]);
+                Console.WriteLine(ber);
             }
 
-            // copy by method Array.Copy()
-            int[] ArrayC = new int[6];
-            Array.Copy(ArrayA, ArrayC, ArrayA.Length);
-
-            Console.WriteLine("*** Array copy by method Array.Copy() ***");
-            Console.WriteLine("===== Before =====");
-            for (int i = 0; i < ArrayA.Length; i++)
+            Console.WriteLine("\nEnd with ry : ");
+            foreach (string ry in endWithRy)
             {
-                Console.WriteLine("ArrayA[{0}] = {1},ArrayC[{0}] = {2}", i, ArrayA[i], ArrayC[i]);
+                Console.WriteLine(ry);
             }
-            // change element 0 of ArrayA
-            ArrayA[0] = 1;
-            Console.WriteLine("===== After =====");
-            for (int i = 0; i < ArrayA.Length; i++)
-            {
-                Console.WriteLine("ArrayA[{0}] = {1},ArrayC[{0}] = {2}", i, ArrayA[i], ArrayC[i]);
-            }
-
-            // wait
-            Console.ReadLine();
-
+            Console.ReadKey();
         }
     }
 
