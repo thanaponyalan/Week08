@@ -11,18 +11,20 @@ namespace Lab08
         static void Main(string[] args)
         {
             int[,] multiplyTable = new int[12, 12];
-            multiplyTable[0, 0] = 2 * 1;
-            multiplyTable[1, 0] = 2 * 2;
-            multiplyTable[2, 0] = 2 * 3;
-            multiplyTable[3, 0] = 2 * 4;
-            multiplyTable[4, 0] = 2 * 5;
-            multiplyTable[5, 0] = 2 * 6;
-            multiplyTable[6, 0] = 2 * 7;
-            multiplyTable[7, 0] = 2 * 8;
-            multiplyTable[8, 0] = 2 * 9;
-            multiplyTable[9, 0] = 2 * 10;
-            multiplyTable[10, 0] = 2 * 11;
-            multiplyTable[11, 0] = 2 * 12;
+            for (int i=1;i<13;i++) {
+                multiplyTable[0, i-1] = i * 1;
+                multiplyTable[1, i-1] = i * 2;
+                multiplyTable[2, i-1] = i * 3;
+                multiplyTable[3, i-1] = i * 4;
+                multiplyTable[4, i-1] = i * 5;
+                multiplyTable[5, i-1] = i * 6;
+                multiplyTable[6, i-1] = i * 7;
+                multiplyTable[7, i-1] = i * 8;
+                multiplyTable[8, i-1] = i * 9;
+                multiplyTable[9, i-1] = i * 10;
+                multiplyTable[10, i-1] = i * 11;
+                multiplyTable[11, i-1] = i * 12;
+            }
             for (int row = 0; row < multiplyTable.GetLength(0); row++)
             {
                 for (int col = 0; col < multiplyTable.GetLength(1); col++)
