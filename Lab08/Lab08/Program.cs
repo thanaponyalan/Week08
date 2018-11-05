@@ -10,23 +10,23 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            string[] Months = new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-            string[] endWithBer=new string[Array.FindAll(Months, element => element.EndsWith("ber", StringComparison.Ordinal)).Length];
-            string[] endWithRy = new string[Array.FindAll(Months, element => element.EndsWith("ry", StringComparison.Ordinal)).Length];
+            CountryArrays country = new CountryArrays();
+            string[] endWithLand=new string[Array.FindAll(country.Names, element => element.EndsWith("land", StringComparison.Ordinal)).Length];
+            string[] endWithStan = new string[Array.FindAll(country.Names, element => element.EndsWith("stan", StringComparison.Ordinal)).Length];
             
-            Array.Copy(Array.FindAll(Months,element=>element.EndsWith("ber",StringComparison.Ordinal)),endWithBer, endWithBer.Length);
-            Array.Copy(Array.FindAll(Months, element => element.EndsWith("ry", StringComparison.Ordinal)),endWithRy,endWithRy.Length);
+            Array.Copy(Array.FindAll(country.Names,element=>element.EndsWith("land",StringComparison.Ordinal)),endWithLand, endWithLand.Length);
+            Array.Copy(Array.FindAll(country.Names, element => element.EndsWith("stan", StringComparison.Ordinal)),endWithStan,endWithStan.Length);
 
-            Console.WriteLine("End with ber : ");
-            foreach (string ber in endWithBer)
+            Console.WriteLine("End with land : ");
+            foreach (string land in endWithLand)
             {
-                Console.WriteLine(ber);
+                Console.WriteLine(land);
             }
 
-            Console.WriteLine("\nEnd with ry : ");
-            foreach (string ry in endWithRy)
+            Console.WriteLine("\nEnd with stan : ");
+            foreach (string stan in endWithStan)
             {
-                Console.WriteLine(ry);
+                Console.WriteLine(stan);
             }
             Console.ReadKey();
         }
