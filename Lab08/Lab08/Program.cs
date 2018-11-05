@@ -10,25 +10,46 @@ namespace Lab08
     {
         static void Main(string[] args)
         {
-            //string[] Months = new string[12] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-            //var sortAscending = from month in Months
-            //                    orderby month
-            //                    select month;
-            //var sortDescending = from month in Months orderby month descending select month;
-            CountryArrays country = new CountryArrays();
-            var sortAscending = from con in country.Names orderby con select con;
-            var sortDescending = from con in country.Names orderby con descending select con;
-            Console.WriteLine("*****Ascending*****");
-            foreach (var c in sortAscending)
+            int[] ArrayA = new int[] { 1, 2, 3, 4, 5, 6 };
+            int[] ArrayB = new int[6];
+            // copy by operator =
+            ArrayB = ArrayA;
+
+            Console.WriteLine("*** Array copy by operator = ***");
+            Console.WriteLine("===== Before =====");
+            for (int i = 0; i < ArrayA.Length; i++)
             {
-                Console.WriteLine(c);
+                Console.WriteLine("arrayA[{0}] = {1},ArrayB[{0}] = {2}",i, ArrayA[i], ArrayB[i]);
             }
-            Console.WriteLine("\n*****Descending*****");
-            foreach (var c in sortDescending)
+            // change element 0 of ArrayA
+            ArrayA[0] = 9;
+            Console.WriteLine("===== After ======");
+            for (int i = 0; i < ArrayA.Length; i++)
             {
-                Console.WriteLine(c);
+                Console.WriteLine("ArrayA[{0}] = {1},ArrayB[{0}] = {2}", i, ArrayA[i], ArrayB[i]);
             }
-            Console.ReadKey();
+
+            // copy by method Array.Copy()
+            int[] ArrayC = new int[6];
+            Array.Copy(ArrayA, ArrayC, ArrayA.Length);
+
+            Console.WriteLine("*** Array copy by method Array.Copy() ***");
+            Console.WriteLine("===== Before =====");
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                Console.WriteLine("ArrayA[{0}] = {1},ArrayC[{0}] = {2}", i, ArrayA[i], ArrayC[i]);
+            }
+            // change element 0 of ArrayA
+            ArrayA[0] = 1;
+            Console.WriteLine("===== After =====");
+            for (int i = 0; i < ArrayA.Length; i++)
+            {
+                Console.WriteLine("ArrayA[{0}] = {1},ArrayC[{0}] = {2}", i, ArrayA[i], ArrayC[i]);
+            }
+
+            // wait
+            Console.ReadLine();
+
         }
     }
 
